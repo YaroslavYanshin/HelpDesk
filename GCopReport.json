@@ -1,3 +1,18 @@
 {
-  "Items": []
+  "Items": [
+    {
+      "Analyzer": "UnusedMethodsAnalyzer",
+      "OccurrenceCount": 20,
+      "Exceptions": null,
+      "SentToServer": true,
+      "InstallationName": "YAROSLAV"
+    },
+    {
+      "Analyzer": "ObjectInitializerAnalyzer",
+      "OccurrenceCount": 44,
+      "Exceptions": null,
+      "SentToServer": true,
+      "InstallationName": "YAROSLAV"
+    }
+  ]
 }

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Security;
 using HelpDesk.Models;
+using HelpDesk.Enums;
 
 namespace HelpDesk.Providers
 {

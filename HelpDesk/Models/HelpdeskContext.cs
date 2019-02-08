@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HelpDesk.Models
 {
@@ -15,5 +17,7 @@ namespace HelpDesk.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Activ> Activs { get; set; }
+
+        public System.Data.Entity.DbSet<HelpDesk.Models.LogViewModel> LogViewModels { get; set; }
     }
 }

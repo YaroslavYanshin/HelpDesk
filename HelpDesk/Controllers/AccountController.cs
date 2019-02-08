@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using HelpDesk.Models;
 using HelpDesk.Enums;
+using System.Data.Entity;
 
 namespace HelpDeskTrain.Controllers
 {
@@ -71,6 +72,7 @@ namespace HelpDeskTrain.Controllers
                 }
             }
             return isValid;
+            
         }
     }
 }
