@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using System.Data.Entity;
 
 namespace HelpDesk.Controllers
 {
@@ -40,5 +41,64 @@ namespace HelpDesk.Controllers
             return RedirectToAction("Departments");
         }
 
+        [HttpGet]
+        public ActionResult Activ()
+        {
+            ViewBag.Activs = db.Activs.Include(s => s.Department);
+            ViewBag.Departments = new SelectList(db.Departments, "Id", "Name");
+            return View();
+        }
+
+        //Добавляем актив
+        [HttpPost]
+        public ActionResult Activ(Activ activ)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Activs.Add(activ);
+                db.SaveChanges();
+            }
+            ViewBag.Activs = db.Activs.Include(s => s.Department);
+            ViewBag.Departments = new SelectList(db.Departments, "Id", "Name");
+            return View(activ);
+        }
+
+        // Удаление актива по id
+        public ActionResult DeleteActiv(int id)
+        {
+            Activ activ = db.Activs.Find(id);
+            db.Activs.Remove(activ);
+            db.SaveChanges();
+            return RedirectToAction("Activ");
+        }
+
+        // отображение категорий
+        [HttpGet]
+        public ActionResult Categories()
+        {
+            ViewBag.Categories = db.Categories;
+            return View();
+        }
+
+        // Добавление категорий
+        [HttpPost]
+        public ActionResult Categories(Category cat)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Categories.Add(cat);
+                db.SaveChanges();
+            }
+            ViewBag.Categories = db.Categories;
+            return View(cat);
+        }
+        // Удаление категории по id
+        public ActionResult DeleteCategory(int id)
+        {
+            Category cat = db.Categories.Find(id);
+            db.Categories.Remove(cat);
+            db.SaveChanges();
+            return RedirectToAction("Categories");
+        }
     }
 }

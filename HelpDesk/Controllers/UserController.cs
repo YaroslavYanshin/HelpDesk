@@ -27,7 +27,8 @@ namespace HelpDesk.Controllers
             roles.Insert(0, new Role { Name = "Все", Id = 0 });
             ViewBag.Roles = new SelectList(roles, "Id", "Name");
             return View(users);
-        }//отображение пользователей
+        }
+        //отображение пользователей
 
         [HttpPost]
         public ActionResult Index(int department, int role)
